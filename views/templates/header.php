@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
+
 <head>
 
     <meta charset="utf-8">
@@ -8,23 +9,30 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GERCI</title>
+    <title>Gerci - Sistema de Gerenciamento de Rede</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="resources/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../resources/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="resources/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="resources/css/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-    <link href="../resources/css/metisMenu.min.css" rel="stylesheet">
-    
-    <script src="../resources/js/jquery.min.js"></script>
-    <script src="../resources/js/bootstrap.min.js"></script>
-    <script src="../resources/js/sb-admin-2.min.js"></script>
-    <script src="../resources/js/metisMenu.min.js"></script>
+    <link href="resources/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body>
@@ -40,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">GERCI</a>
+                <a class="navbar-brand" href="index.html">Gerci v1.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -50,10 +58,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../../login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -65,58 +75,26 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Procurar...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
+                        <li>
+                            <a href="main.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-gear fa-fw"></i> Configuração<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Áreas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Dashboard</a>
+                                    <a href="#">Contabilização</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-line-chart fa-fw"></i> Contabilização<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Dashboard</a>
+                                    <a href="#">Desempenho</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-area-chart fa-fw"></i> Desempenho<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Dashboard</a>
+                                    <a href="#">Falhas</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bug fa-fw"></i> Falhas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Dashboard</a>
+                                    <a href="#">Segurança</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-lock fa-fw"></i> Segurança<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Dashboard</a>
+                                    <a href="#">Configuração</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -128,4 +106,4 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id="page-wrapper">
+
