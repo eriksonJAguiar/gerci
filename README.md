@@ -6,5 +6,7 @@ Colaboradores:
 
 - Erikson Julio de Aguiar
 
+- Gustavo Henrique Morales de Mendonça
+
 - Ricardo Gonçalves Coelho
 
