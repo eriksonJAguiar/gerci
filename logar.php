@@ -10,7 +10,7 @@ $ra = $_POST['ra'];
 $password = $_POST['password'];
 
 $usuario = new Usuario($ra,$password);
-$ldapserver = new LdapServer('200.201.11.30','laboratorios.cct.uenp.edu.br');
+$ldapserver = new LdapServer('172.16.100.253','laboratorios.cct.uenp.edu.br');
 
 if($ldapserver->autentica($usuario)){
 	// Usuário logado com sucesso, redireciona ele para a página restrita
