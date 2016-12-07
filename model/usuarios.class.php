@@ -8,7 +8,7 @@ class Usuario{
 	/*Construtor*/
 	function __construct($ra, $passwd){
 		$this->ra = $ra;
-		$this->passwd = $passwd;
+		$this->password = $passwd;
 	}
 	/*GETs e SETs*/
 

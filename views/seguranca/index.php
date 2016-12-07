@@ -1,8 +1,13 @@
-<?PHP
-	include('../../template/header.php');
+<?php include('../templates/header.php'); ?>
 
-	// seu codigo aqui
+	<!-- Início do container -->
+	<div class="container">
+		<br/>
+		<div class="alert alert-info">
+ 			 <strong>Info!</strong> Seu código vai aqui!
+		</div>
+	</div>
+	<!-- Fim do container -->
 
-	include('../../template/footer.php');
+<?php include('../templates/footer.php'); ?>
 
-?>
