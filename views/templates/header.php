@@ -94,7 +94,7 @@
                                     <a href="/views/seguranca/">Segurança</a>
                                 </li>
                                 <li>
-                                    <a href="/views/configuraca">Configuração</a>
+                                    <a href="/views/configuracao/">Configuração</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
