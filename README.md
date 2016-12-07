@@ -4,9 +4,10 @@ Software de Gerenciamento de Redes desenvolvido pelo 3 ano do curso de Ciências
 
 Colaboradores:
 
+- Cristiane Fabrício Machado
+
 - Erikson Julio de Aguiar
 
 - Gustavo Henrique Morales de Mendonça
 
 - Ricardo Gonçalves Coelho
-
