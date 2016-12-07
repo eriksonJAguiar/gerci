@@ -12,19 +12,19 @@
     <title>Gerci - Sistema de Gerenciamento de Rede</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="resources/css/metisMenu.min.css" rel="stylesheet">
+    <link href="../../resources/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="resources/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../resources/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="resources/css/morris.css" rel="stylesheet">
+    <link href="../../resources/css/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="resources/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../resources/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="main.php">Gerci v1.0</a>
+                <a class="navbar-brand" href="../../main.php">Gerci v1.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -76,25 +76,25 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="main.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="../../main.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Áreas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Contabilização</a>
+                                    <a href="/views/contabilizacao/">Contabilização</a>
                                 </li>
                                 <li>
-                                    <a href="#">Desempenho</a>
+                                    <a href="/views/desempenho/">Desempenho</a>
                                 </li>
                                 <li>
-                                    <a href="#">Falhas</a>
+                                    <a href="/views/falhas/">Falhas</a>
                                 </li>
                                 <li>
-                                    <a href="#">Segurança</a>
+                                    <a href="/views/seguranca/">Segurança</a>
                                 </li>
                                 <li>
-                                    <a href="#">Configuração</a>
+                                    <a href="/views/configuraca">Configuração</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
