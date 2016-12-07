@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Gerci - Sistema de Gerenciamento de Rede</title>
+    <title>GERCI Login</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
@@ -28,10 +28,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>GERCI Login</title>
-
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -50,7 +46,7 @@
                                     <input class="form-control" placeholder="RA" name="ra" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Senha" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Senha" name="password" type="password" autofocus>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                  <button class="btn btn-lg btn-success btn-block" type="submit">Entrar</button>
