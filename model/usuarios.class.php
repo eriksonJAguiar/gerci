@@ -3,12 +3,12 @@ class Usuario{
 	/*Atributos*/
 	public $nome;
 	public $ra;
-	private $password;
+	public $password;
 
 	/*Construtor*/
 	function __construct($ra, $passwd){
 		$this->ra = $ra;
-		$this->passwd = $passwd;
+		$this->password = $passwd;
 	}
 	/*GETs e SETs*/
 

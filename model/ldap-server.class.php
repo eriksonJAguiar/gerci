@@ -1,5 +1,4 @@
 <?PHP
-
 class LdapServer{
 
 	/*Atributos*/
