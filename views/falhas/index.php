@@ -5,6 +5,7 @@
 		<br/>
 		<div class="alert alert-info">
  			 <strong>Info!</strong> Seu código vai aqui!
+			 <?php echo "<p>Hello world</p>"; ?>
 		</div>
 	</div>
 	<!-- Fim do container -->
