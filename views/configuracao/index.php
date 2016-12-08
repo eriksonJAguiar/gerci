@@ -1,7 +1,7 @@
 <?php include('../templates/header.php'); ?>
 
 	<!-- Início do container -->
-	<div class="container">
+	<div class="">
 		<br/>
 		<div class="alert alert-info">
  			 <strong>Info!</strong> Seu código vai aqui!

@@ -11,14 +11,25 @@ $dispositivo->setDescricao("Um pc muito legal do grimes");
 $dispositivos = array();
 array_push($dispositivos, $dispositivo);
 ?>
+<style>
+    tr:hover{
+        cursor: hand;
+    }
+</style>
 
-<div class="container" style="padding-top: 15px">
+<script>
+    function verDispositivo(ip){
+        window.location.href = "./detalhes.php?ip=" + ip;
+    }
+</script>
+
+<div class="" style="padding-top: 15px">
     <table class="table table-hover">
         <thead>
             <tr>
-                <td>IP</td>
-                <td>Local</td>
-                <td>Descrição</td>
+                <td><h3>IP</h3></td>
+                <td><h3>Local</h3></td>
+                <td><h3>Descrição</h3></td>
             </tr>
             <tbody>
             <?php
@@ -28,11 +39,12 @@ array_push($dispositivos, $dispositivo);
                     
                 }
             ?>
-                <tr class="<?=$cor?>">
-                    <td><?=$dispositivo->getIp()?></td>
-                    <td><?=$dispositivo->getLocal()?></td>
-                    <td><?=$dispositivo->getDescricao()?></td>
+                <tr class="<?=$cor?>" onMouseOver="this.style.cursor='pointer'" onclick="verDispositivo('<?=$dispositivo->getIp()?>')">
+                    <td><h4><?=$dispositivo->getIp()?></h4></td>
+                    <td><h4><?=$dispositivo->getLocal()?></h4></td>
+                    <td><h4><?=$dispositivo->getDescricao()?></h4></td>
                 </tr>
+                
             <?php
             }
             ?>

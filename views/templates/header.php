@@ -25,6 +25,9 @@
 
     <!-- Custom Fonts -->
     <link href="../../resources/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- jQuery -->
+    <script src="../../resources/js/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -105,3 +108,6 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xl-12">

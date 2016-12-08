@@ -1,8 +1,14 @@
+                </div>
+                    <!-- /.col-lg-12 -->
+            </div>
+           <!--conteudo da pagina-->
+        </div>
+        <!-- /#page-wrapper -->
+    
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="../../resources/js/jquery.min.js"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../../resources/js/bootstrap.min.js"></script>
