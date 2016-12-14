@@ -1,13 +1,25 @@
-<?php include('../templates/header.php'); ?>
+<?php
+	include('../templates/header.php');
+	include('../../controllers/seguranca/controller.php');
+?>
 
-	<!-- Início do container -->
-	<div class="">
-		<br/>
-		<div class="alert alert-info">
- 			 <strong>Info!</strong> Seu código vai aqui!
-		</div>
-	</div>
-	<!-- Fim do container -->
+<?php
+
+
+
+
+	$output = setFunction("172.16.103.5","-v");
+	$saida = getPorts($output);
+
+	foreach ($saida as $i => $value) {
+		echo $saida[$i]."<br />";
+	}
+
+
+
+
+
+
+?>
 
 <?php include('../templates/footer.php'); ?>
-

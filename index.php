@@ -21,6 +21,9 @@
     <!-- Custom Fonts -->
     <link href="resources/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- jQuery -->
+    <script src="resources/js/jquery.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,6 +35,34 @@
 
 <body>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#form-logar").on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "./logar.php",
+                    data: new FormData(this),
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    success: function (response) {
+                        if(response=='success'){
+                            window.location.href = "./main.php";
+                        }else if(response=='error'){
+                            $("#mensagem").html("Login ou senha incorretos.");
+                            $("#mensagem").addClass("alert alert-danger");
+                        }else{
+                            $("#mensagem").html(response);
+                            $("#mensagem").addClass("alert alert-danger");
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -40,7 +71,7 @@
                         <h3 class="panel-title">Gerci - Login</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="logar.php">
+                        <form id="form-logar" role="form" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="RA" name="ra" type="text" autofocus>
@@ -50,6 +81,7 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                  <button class="btn btn-lg btn-success btn-block" type="submit">Entrar</button>
+                                 <p id="mensagem" style="margin-top: 15px"></p>
                             </fieldset>
                         </form>
                     </div>
@@ -58,8 +90,7 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="resources/js/jquery.min.js"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="resources/js/bootstrap.min.js"></script>
