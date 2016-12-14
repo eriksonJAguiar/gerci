@@ -9,7 +9,7 @@ create database gerci;
 -- Estrutura para tabela `maquinas`
 --
 
-CREATE TABLE IF NOT EXISTS `maquinas` (
+CREATE TABLE IF NOT EXISTS `dispositivos` (
 `id` int(11) NOT NULL,
   `ip` varchar(15) NOT NULL,
   `local` varchar(30) NOT NULL,
@@ -19,11 +19,11 @@ CREATE TABLE IF NOT EXISTS `maquinas` (
 --
 -- Índices de tabela `maquinas`
 --
-ALTER TABLE `maquinas`
+ALTER TABLE `dispositivos`
  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de tabela `maquinas`
 --
-ALTER TABLE `maquinas`
+ALTER TABLE `dispositivos`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
