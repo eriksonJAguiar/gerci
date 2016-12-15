@@ -11,6 +11,7 @@ $ip = $_GET['ip'];
 <script type="text/javascript">
 	function toggle(obj) {
 		var el = document.getElementById(obj);
+		$("#"+obj).css("cursor", "pointer");
 		if ( el.style.display != 'none' ) {
 		el.style.display = 'none';
 		}

@@ -57,6 +57,8 @@ if($porcentagemErroDatagrama<10){
 //Número de falhas por segundo de conexões tcp
 $tcpAttemptFails = snmp(".1.3.6.1.2.1.6.7");
 $numeroFalhasConexoesTcp = $tcpAttemptFails;
+$numeroFalhasConexoesTcpClasse = "panel-default";
+/*
 if($numeroFalhasConexoesTcp<2){
 	$numeroFalhasConexoesTcpClasse = "panel-green";
 }else if($numeroFalhasConexoesTcp<4){
@@ -64,10 +66,13 @@ if($numeroFalhasConexoesTcp<2){
 }else{
 	$numeroFalhasConexoesTcpClasse = "panel-red";
 }
+*/
 
 //Número de falhas por segundo em reconexões tcp
 $tcpEstabResets = snmp(".1.3.6.1.2.1.6.8");
 $numeroFalhasReconexoesTcp = $tcpEstabResets;
+$numeroFalhasReconexoesTcpClasse = "panel-default";
+/*
 if($numeroFalhasReconexoesTcp<2){
 	$numeroFalhasReconexoesTcpClasse = "panel-green";
 }else if($numeroFalhasReconexoesTcp<4){
@@ -75,11 +80,24 @@ if($numeroFalhasReconexoesTcp<2){
 }else{
 	$numeroFalhasReconexoesTcpClasse = "panel-red";
 }
+*/
+
+//Taxa de segmentos de entrada tcp
+$tcpInSegs = snmp(".1.3.6.1.2.1.6.10");
+$numeroSegmentosTcpEntrada = $tcpInSegs;
+$numeroSegmentosTcpEntradaClasse = "panel-default";
+
+//Taxa de segmentos de saida tcp
+$tcpOutSegs = snmp(".1.3.6.1.2.1.6.11");
+$numeroSegmentosTcpSaida = $tcpOutSegs;
+$numeroSegmentosTcpSaidaClasse = "panel-default";
 
 //@@UDP
 //Número de falhas por segundo em pacotes para portas não usadas udp
 $udpNoPorts = snmp(".1.3.6.1.2.1.7.2");
 $numeroFalhasUdp = $udpNoPorts;
+$numeroFalhasUdpClasse = "panel-default";
+/*
 if($numeroFalhasUdp<2){
 	$numeroFalhasUdpClasse = "panel-green";
 }else if($numeroFalhasUdp<4){
@@ -87,11 +105,14 @@ if($numeroFalhasUdp<2){
 }else{
 	$numeroFalhasUdpClasse = "panel-red";
 }
+*/
 
 //@@EGP
 //Número de falhas por segundo de mensagens recebidas egp
 $egpInErrors = snmp(".1.3.6.1.2.1.8.2");
 $numeroFalhasEntradaEgp = $egpInErrors;
+$numeroFalhasEntradaEgpClasse = "panel-default";
+/*
 if($numeroFalhasEntradaEgp<2){
 	$numeroFalhasEntradaEgpClasse = "panel-green";
 }else if($numeroFalhasEntradaEgp<4){
@@ -99,10 +120,13 @@ if($numeroFalhasEntradaEgp<2){
 }else{
 	$numeroFalhasEntradaEgpClasse = "panel-red";
 }
+*/
 
 //Número de falhas por segundo de mensagens enviadas egp
 $egpOutErrors = snmp(".1.3.6.1.2.1.8.4");
 $numeroFalhasSaidaEgp = $egpOutErrors;
+$numeroFalhasSaidaEgpClasse = "panel-default";
+/*
 if($numeroFalhasSaidaEgp<2){
 	$numeroFalhasSaidaEgpClasse = "panel-green";
 }else if($numeroFalhasSaidaEgp<4){
@@ -110,6 +134,7 @@ if($numeroFalhasSaidaEgp<2){
 }else{
 	$numeroFalhasSaidaEgpClasse = "panel-red";
 }
+*/
 
 //@@SNMP
 //Taxa de pacotes snmp recebidos
@@ -142,11 +167,13 @@ $(function () {
 </script>
 <div style="padding-top: 15px">
 	<!-- @@ INTERFACES @@ -->
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4><strong>Interfaces</strong></h4>
+			<a class="pull-right" href="#panel-interfaces" data-toggle="collapse" aria-expanded="false" style="cursor: pointer; margin-top: -35px; color: white"><i class="fa fa-bars fa-2x"></i></a> 
+			
 		</div>
-		<div class="panel-body">
+		<div id="panel-interfaces" class="panel-body collapse">
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="panel <?=$porcetagemErroEntradaClasse?>">
@@ -208,11 +235,12 @@ $(function () {
 	</div>
 
 	<!-- @@ IP @@ -->
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4><strong>IP</strong></h4>
+			<a class="pull-right" href="#panel-ip" data-toggle="collapse" aria-expanded="false" style="cursor: pointer; margin-top: -35px; color: white"><i class="fa fa-bars fa-2x"></i></a> 
 		</div>
-		<div class="panel-body">
+		<div id="panel-ip" class="panel-body collapse">
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="panel <?=$porcetagemErroDatagramaClasse?>">
@@ -246,18 +274,19 @@ $(function () {
 	</div>
 
 	<!-- @@ TCP @@ -->
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4><strong>TCP</strong></h4>
+			<a class="pull-right" href="#panel-tcp" data-toggle="collapse" aria-expanded="false" style="cursor: pointer; margin-top: -35px; color: white"><i class="fa fa-bars fa-2x"></i></a> 
 		</div>
-		<div class="panel-body">
+		<div id="panel-tcp" class="panel-body collapse">
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="panel <?=$numeroFalhasConexoesTcpClasse?>">
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$numeroFalhasConexoesTcp?>/s
+									<?=$numeroFalhasConexoesTcp?>
 								</div>
 							</div>
 						</div>
@@ -265,7 +294,7 @@ $(function () {
 							
 							<div class="row">
 								<div class="col-md-10">
-									<strong>Número de vezes que uma conexão TCP falhou por segundo</strong>	
+									<strong>Taxa que uma conexão TCP falhou</strong>	
 								</div>
 								<div class="col-md-2">
 									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
@@ -284,14 +313,14 @@ $(function () {
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$numeroFalhasReconexoesTcp?>/s
+									<?=$numeroFalhasReconexoesTcp?>
 								</div>
 							</div>
 						</div>
 						<div class="panel-footer">
 							<div class="row">
 								<div class="col-md-10">
-									<strong>Número de vezes que uma conexão TCP foi reiniciada por segundo</strong>	
+									<strong>Taxa que uma conexão TCP foi reiniciada</strong>	
 								</div>
 								<div class="col-md-2">
 									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="left" data-toggle="popover" 
@@ -306,29 +335,84 @@ $(function () {
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<div class="panel <?=$numeroSegmentosTcpEntradaClasse?>">
+						<div class="panel-heading">
+							<div class="text-left">
+								<div class="huge">
+									<?=$numeroSegmentosTcpEntrada?>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Taxa de segmentos de entrada do TCP</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
+									data-content="
+										Número total de segmentos recebidos, incluindo aqueles recebidos com erro.
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="panel <?=$numeroSegmentosTcpSaidaClasse?>">
+						<div class="panel-heading">
+							<div class="text-left">
+								<div class="huge">
+									<?=$numeroSegmentosTcpSaida?>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Taxa de segmentos de saida do TCP</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="left" data-toggle="popover" 
+									data-content="
+										O número total de segmentos enviados, incluindo aqueles em conexões atuais menos os que contém apenas octetos retransmitidos.
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<!-- @@ UDP @@ -->
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4><strong>UDP</strong></h4>
+			<a class="pull-right" href="#panel-udp" data-toggle="collapse" aria-expanded="false" style="cursor: pointer; margin-top: -35px; color: white"><i class="fa fa-bars fa-2x"></i></a> 
 		</div>
-		<div class="panel-body">
+		<div id="panel-udp" class="panel-body collapse">
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="panel <?=$numeroFalhasUdpClasse?>">
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$numeroFalhasUdp?>/s
+									<?=$numeroFalhasUdp?>
 								</div>
 							</div>
 						</div>
 						<div class="panel-footer">	
 							<div class="row">
 								<div class="col-md-10">
-									<strong>Número de vezes por segundo que datagramas UDP foram recebidos e não havia nenhuma aplicação na porta de destino</strong>
+									<strong>Taxa que datagramas UDP foram recebidos e não havia nenhuma aplicação na porta de destino</strong>
 								</div>
 								<div class="col-md-2">
 									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
@@ -347,20 +431,21 @@ $(function () {
 	</div>
 
 	<!-- @@ EGP @@ -->
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4><strong>EGP</strong></h4>
+			<a class="pull-right" href="#panel-egp" data-toggle="collapse" aria-expanded="false" style="cursor: pointer; margin-top: -35px; color: white"><i class="fa fa-bars fa-2x"></i></a> 
 		</div>
-		<div class="panel-body">
+		<div id="panel-egp" class="panel-body collapse">
 			<div class="row">
-				<div class="col-xs-6">
+			 	<div class="col-xs-6">
 					<div class="panel <?=$numeroFalhasEntradaEgpClasse?>">
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
 									<?php
 									if(empty($numeroFalhasEntradaEgp))echo "Não encontrada na MIB";
-									else echo $numeroFalhasEntradaEgp . "/s";
+									else echo $numeroFalhasEntradaEgp;
 									?>
 								</div>
 							</div>
@@ -368,7 +453,7 @@ $(function () {
 						<div class="panel-footer">
 							<div class="row">
 								<div class="col-md-10">
-									<strong>Número de vezes por segundo que uma mensagem de gateway externo chega com erro</strong>
+									<strong>Taxa que uma mensagem de gateway externo chega com erro</strong>
 								</div>
 								<div class="col-md-2">
 									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
@@ -417,11 +502,12 @@ $(function () {
 	</div>
 
 	<!-- @@ SNMP @@ -->
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h4><strong>SNMP</strong></h4>
+			<a class="pull-right" href="#panel-snmp" data-toggle="collapse" aria-expanded="false" style="cursor: pointer; margin-top: -35px; color: white"><i class="fa fa-bars fa-2x"></i></a> 
 		</div>
-		<div class="panel-body">
+		<div id="panel-snmp" class="panel-body collapse">
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="panel panel-default">
