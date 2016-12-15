@@ -13,7 +13,19 @@ $dispositivos = $dao->getAll();
 		<br/>
 		<div class="alert alert-info">
  			 <strong></strong> 
-			 
+	<?php
+        echo('<br />'.date('H:i:s'))
+	?>
+ 
+	<script type="text/javascript">
+ 
+    Redirect();
+    function Redirect()
+    {
+        setTimeout("location.reload(true);",5000);   
+    }
+ 
+</script>
 			 <table class="table">
     <thead>
       <tr>
@@ -36,7 +48,7 @@ $dispositivos = $dao->getAll();
 for($i=0;$i<count($dispositivos);$i++){
 	$nome = $dispositivos[$i]->getDescricao(); 
 
-	$a = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.6.0"), 11); 
+	$a = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.6.0"), 11); /* InASNParseErrs */
 	if($a<=10){
 		$aClasse = "success";
 	}else if($a<=20){
@@ -45,7 +57,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$aClasse = "danger";
 	}
 
-	$b = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.8.0"), 11); 
+	$b = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.8.0"), 11); /* InTooBigs */
 	if($b<=10){
 		$bClasse = "success";
 	}else if($b<=20){
@@ -54,7 +66,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$bClasse = "danger";
 	}	
 
-	$c = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.9.0"), 11);
+	$c = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.9.0"), 11); /* InNoSuchNames */
 	if($c<=10){
 		$cClasse = "success";
 	}else if($c<=20){
@@ -63,7 +75,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$cClasse = "danger";
 	}	
 
-	$d = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.10.0"), 11);
+	$d = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.10.0"), 11); /* InBadValues */
 	if($d<=10){
 		$dClasse = "success";
 	}else if($d<=20){
@@ -72,7 +84,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$dClasse = "danger";
 	}	
 
-	$e = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.11.0"), 11);
+	$e = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.11.0"), 11); /* InReadOnlys */
 	if($e<=10){
 		$eClasse = "success";
 	}else if($e<=20){
@@ -81,7 +93,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$eClasse = "danger";
 	}	
 
-	$f = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.12.0"), 11);
+	$f = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.12.0"), 11); /* InGenErrs */
 	if($f<=10){
 		$fClasse = "success";
 	}else if($f<=20){
@@ -90,7 +102,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$fClasse = "danger";
 	}
 	
-	$g = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.20.0"), 11);
+	$g = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.20.0"), 11); /* OutTooBigs */
 	if($g<=10){
 		$gClasse = "success";
 	}else if($g<=20){
@@ -99,7 +111,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$gClasse = "danger";
 	}
 	
-	$h = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.21.0"), 11);
+	$h = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.21.0"), 11); /* OutNoSuchNames */
 	if($h<=10){
 		$hClasse = "success";
 	}else if($h<=20){
@@ -107,7 +119,7 @@ for($i=0;$i<count($dispositivos);$i++){
 	}else{
 		$hClasse = "danger";
 	}	
-	$k = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.22.0"), 11);
+	$k = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.22.0"), 11); /* OutBadValues */
 	if($k<=10){
 		$kClasse = "success";
 	}else if($k<=20){
@@ -116,7 +128,7 @@ for($i=0;$i<count($dispositivos);$i++){
 		$kClasse = "danger";
 	}
 	
-	$j = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.24.0"), 11);
+	$j = substr(snmpget($dispositivos[$i]->getIp(), "public", "1.3.6.1.2.1.11.24.0"), 11); /* OutGenErrs  */
 	if($j<=10){
 		$jClasse = "success";
 	}else if($j<=20){
@@ -146,10 +158,37 @@ for($i=0;$i<count($dispositivos);$i++){
       </tr>
     
 <?php } ?>
-  </table>
-
-			 
-			 
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Error type</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Too Big</td>
+        <td>A operação produziu um valor muito grande para caber em uma única mensagem SNMP.
+</td>
+      </tr>
+      <tr>
+        <td>No Such</td>
+        <td>A operação especificou um objeto que não existe na MIB.</td>
+      </tr>
+	  <tr>
+        <td>Bad Value</td>
+        <td>O valor especificado pertence a um tipo não conhecido de dado, ou a sintaxe da operação está errada.</td>
+      </tr>
+	  <tr>
+        <td>Read Only</td>
+        <td>O perfil comunitário específica que o objeto não pode ser escrito.</td>
+      </tr>
+      <tr>
+        <td>General Error</td>
+        <td>SNMP falhou em completar a operação por uma razão que não é qualificada em nenhuma outra categoria.</td>
+      </tr>
+    </tbody>
+  </table>	 
 			 
 		</div>
 	</div>
