@@ -85,19 +85,19 @@
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Áreas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/views/contabilizacao/">Contabilização</a>
+                                    <a href="../contabilizacao/">Contabilização</a>
                                 </li>
                                 <li>
-                                    <a href="/views/desempenho/">Desempenho</a>
+                                    <a href="../desempenho/">Desempenho</a>
                                 </li>
                                 <li>
-                                    <a href="/views/falhas/">Falhas</a>
+                                    <a href="../falhas/">Falhas</a>
                                 </li>
                                 <li>
-                                    <a href="/views/seguranca/">Segurança</a>
+                                    <a href="../seguranca/">Segurança</a>
                                 </li>
                                 <li>
-                                    <a href="/views/configuracao/">Configuração</a>
+                                    <a href="../configuracao/">Configuração</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
