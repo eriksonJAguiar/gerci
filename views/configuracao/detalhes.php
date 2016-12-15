@@ -24,6 +24,9 @@ $ip = $_GET['ip'];
 });
 	
 </script>
+<style type="text/css">
+	.panel-heading:hover{cursor:pointer;}
+</style>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -43,19 +46,19 @@ $ip = $_GET['ip'];
 						</thead>
 						<tbody>
 						  <tr>
-							<td>descrição do sistema</td>
+							<td>Descrição do sistema</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.1.1.0")?></td>
 						  </tr>
 						  <tr>
-							<td>localização fisica do sistema</td>
+							<td>Localização fisica do sistema</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.1.6.0")?></td>
 						  </tr>
 						  <tr>
-							<td>pessoa responsavel pelo sistema</td>
+							<td>Pessoa responsavel pelo sistema</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.1.4.0")?></td>
 						  </tr>
 						  <tr>
-							<td>nome do sistema</td>
+							<td>Nome do sistema</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.1.5.0")?></td>
 						  </tr>
 						</tbody>
@@ -97,7 +100,7 @@ $ip = $_GET['ip'];
 					$descricaoInter = "Você está com uma quantidade maior que o permitido!";
 				}
 		?>
-			<div class="panel <?= $alert ?>" >
+			<div class="panel <?= $alert ?>" href="#" data-toggle="tooltip" title="<?=$descricaoInter?>">
 				<div class="panel-heading" onclick="toggle('infointer2');" style="background:<?=$color?>;">
 					<h3 class="panel-title">
 						Informações de Interface
@@ -132,15 +135,15 @@ $ip = $_GET['ip'];
 						</thead>
 						<tbody>
 						  <tr>
-							<td>tipo de interface</td>
+							<td>Tipo de interface</td>
 							<td><?= decodificarTipo(pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.2.2.1.3.".$wi))?></td>
 						  </tr>
 						  <tr>
-							<td>tamanho maximo do datagrama suportado pela  interface</td>
+							<td>Tamanho maximo do datagrama suportado pela  interface</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.2.2.1.4.".$wi)?></td>
 						  </tr>
 						  <tr>
-							<td>largura de banda da interface</td>
+							<td>Largura de banda da interface</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.2.2.1.5.".$wi)?>bps</td>
 						  </tr>
 						  <tr>
@@ -180,11 +183,11 @@ $ip = $_GET['ip'];
 								<td><?= decodificaripForwarding(pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.4.1.0"))?></td>
 							  </tr>
 							  <tr>
-								<td>o endereço IP desta entrada</td>
+								<td>Endereço de IP</td>
 								<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.4.20.1.1.".$pegarIPS[$i])?></td>
 							  </tr>
 							  <tr>
-								<td>Mascara</td>
+								<td>Máscara de rede</td>
 								<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.4.20.1.3.".$pegarIPS[$i])?></td>
 							  </tr>
 							  <tr>
@@ -262,19 +265,19 @@ $ip = $_GET['ip'];
 						</thead>
 						<tbody>
 						  <tr>
-							<td>algoritmo utilizado para determinar o "time out" de retransmissao de octetos TCP nao confirmados</td>
+							<td>Algoritmo utilizado para determinar o "time out" de retransmissao de octetos TCP nao confirmados</td>
 							<td><?= decodificadortcpRtoAlgorithm(pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.6.1.0"))?></td>
 						  </tr>
 						  <tr>
-							<td>valor minimo permitido para o "time-out"de retransmissao TCP</td>
+							<td>Valor minimo permitido para o "time-out"de retransmissao TCP</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.6.2.0")?> ms</td>
 						  </tr>
 						  <tr>
-							<td>valor maximo permitido para o "time-out"de retransmissao TCP</td>
+							<td>Valor maximo permitido para o "time-out"de retransmissao TCP</td>
 							<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.6.3.0")?> ms</td>
 						  </tr>
 						  <tr>
-							<td>limite de conexoes que podem ser abertas pela entidade de transporte do dispositivo</td>
+							<td>Limite de conexoes que podem ser abertas pela entidade de transporte do dispositivo</td>
 							<td><?= decodificartcpMaxConn(pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.6.4.0"))?></td>
 						  </tr>
 						  
@@ -296,7 +299,7 @@ $ip = $_GET['ip'];
 						  
 							  <tr style="background:<?=$color?>;" href="#" data-toggle="tooltip" title="<?=$descricaoTcp?>">
 
-								<td>numero de conexoes de transporte corretamente abertas</td>
+								<td>Numero de conexoes de transporte corretamente abertas</td>
 								<td><?= pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.6.9.0")?></td>
 						
 							  </tr>
@@ -321,7 +324,7 @@ $ip = $_GET['ip'];
 						</thead>
 						<tbody>
 						  <tr>
-							<td> indica se o agente SNMP pode enviar traps</td>
+							<td>Indica se o agente SNMP pode enviar traps</td>
 							<td><?= descodificarsnmpEnableAuthTraps(pegarValorOIDGET($ip, "public", "1.3.6.1.2.1.11.30.0"))?></td>
 						  </tr>
 						</tbody>
@@ -344,7 +347,7 @@ $ip = $_GET['ip'];
 				$descricaoSoft = "Você está com uma quantidade maior de programas instalados que o permitido!";
 			}
 			?>
-			<div  class="panel <?= $alert ?>">
+			<div  class="panel <?= $alert ?>" href="#" data-toggle="tooltip" title="<?=$descricaoSoft?>">
 				<div class="panel-heading" onclick="toggle('infoss');" style="background: <?= $color; ?>;">
 					<h3 class="panel-title">
 						Informações de Software
@@ -395,7 +398,7 @@ $ip = $_GET['ip'];
 				$descricaoSoftExe = "Você está com uma quantidade maior de programas em execução que é permitido!";
 			}
 			?>
-			<div  class="panel <?= $alert ?>" >
+			<div  class="panel <?= $alert ?>" href="#" data-toggle="tooltip" title="<?=$descricaoSoftExe?>">
 				<div class="panel-heading" onclick="toggle('infosse');" style=" background: <?= $color; ?>;">
 					<h3 class="panel-title">
 						Informações de Software em Execução
