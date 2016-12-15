@@ -7,3 +7,5 @@ CREATE TABLE maquinas (
   descricao varchar(60) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `maquinas` (`id`, `ip`, `local`, `descricao`) VALUES (NULL, '172.16.105.11', 'LAB3', 'PC11');
