@@ -52,10 +52,10 @@ function descodificarsnmpEnableAuthTraps($a){
 }
 function decodificaripForwarding($a){
 	if($a=='1'){
-		return "Atuando como roteador";
+		return "Sim";
 		
 	}else{
-		return "Nao atuando como roteador";
+		return "Não";
 	}
 	
 }
