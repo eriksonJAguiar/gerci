@@ -123,7 +123,23 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 
 
 ?>
+<style type="text/css">
+.popover {
+    max-width: 350px;
+    /* If max-width does not work, try using width instead */
+    width: 350px; 
+    text-align: justify;
+}
+</style>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
 <div style="padding-top: 15px">
 	<!-- @@ INTERFACES @@ -->
 	<div class="panel panel-default">
@@ -137,12 +153,25 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$porcentagemErroEntrada?>%
+									<?=number_format($porcentagemErroEntrada,2)?>%
 								</div>
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Porcentagem de erro de entrada</strong>		
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Porcentagem de erro de entrada</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
+									data-content="
+										Com os objetos ifInUcastPkts, ifInNUcastPkts, ifInErrors, pode-se calcular as porcentagens de erro de entrada.
+										(porcentagem de erro de entrada = ifInErrors / (ifInUcastPkts + ifInNUcastPkts ))
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -151,12 +180,26 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$porcentagemErroSaida?>%
+									<?=number_format($porcentagemErroSaida,2)?>%
 								</div>
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Porcentagem de erro de saida</strong>		
+								
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Porcentagem de erro de saida</strong>
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="left" data-toggle="popover" 
+									data-content="
+										Com os objetos  ifOutUcastPkts, ifOutNucastPkts, ifOutErros , podemos calcular as porcentagens de erro de saída.
+										Porcentagem de erro de saída = ifOutErrors / (ifOutUcastPkts + ifOutNUcastPkts )
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -176,12 +219,25 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$porcentagemErroDatagrama?>%
+									<?=number_format($porcentagemErroDatagrama,2)?>%
 								</div>
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Porcentagem de erro de datagrama IP</strong>		
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Porcentagem de erro de datagrama IP</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
+									data-content="
+										Pode-se calcular a porcentagem de erros de datagramas IP:
+										Porcentagem de erros de entrada: (ipInDiscards + ipInHdrErrors + ipInAddrErrors) / ipInReceives
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -206,7 +262,20 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Número de vezes que uma conexão TCP falhou por segundo</strong>		
+							
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Número de vezes que uma conexão TCP falhou por segundo</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
+									data-content="
+										Pela observação do objeto tcpAttemptFails pode-se medir a confiabilidade da rede, onde um número menor de falhas indicam uma rede mais confiável.
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -220,7 +289,19 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Número de vezes que uma conexão TCP foi reiniciada por segundo</strong>		
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Número de vezes que uma conexão TCP foi reiniciada por segundo</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="left" data-toggle="popover" 
+									data-content="
+										Pela observaçao do objeto tcpEstabResets também pode-se medir a confiabilidade da rede, sendo que quanto maior o número de conexões estabelecidas reinicializadas, menos confiável é a rede.
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -244,8 +325,20 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 								</div>
 							</div>
 						</div>
-						<div class="panel-footer">
-							<strong>Número de vezes por segundo que datagramas UDP foram recebidos e não havia nenhuma aplicação na porta de destino</strong>		
+						<div class="panel-footer">	
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Número de vezes por segundo que datagramas UDP foram recebidos e não havia nenhuma aplicação na porta de destino</strong>
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
+									data-content="
+										O objeto udpNoPorts informa quando a entidade está recebendo datagramas de uma aplicação inválida. Uma taxa alta desses datagramas pode resultar em problemas de performance.
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -273,7 +366,19 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Número de vezes por segundo que uma mensagem de gateway externo chega com erro</strong>		
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Número de vezes por segundo que uma mensagem de gateway externo chega com erro</strong>
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
+									data-content="
+										O aumento do valor dos objetos egpInErrors e egpOutErrors geralmente coincide com o aumento número de mensagens recebidas e enviadas pela entidade. Se uma mensagem é recebida com erro e uma resposta válida não é enviada, o vizinho EGP originador deverá retransmitir a mensagem. 
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>		
 						</div>
 					</div>
 				</div>
@@ -290,7 +395,20 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Número de vezes por segundo que uma mensagem de gateway externo chega com erro</strong>		
+						
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Número de vezes por segundo que uma mensagem de gateway externo chega com erro</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="left" data-toggle="popover" 
+									data-content="
+										O aumento do valor dos objetos egpInErrors e egpOutErrors geralmente coincide com o aumento número de mensagens recebidas e enviadas pela entidade. Se uma mensagem é recebida com erro e uma resposta válida não é enviada, o vizinho EGP originador deverá retransmitir a mensagem. 
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -315,7 +433,19 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Taxa de pacotes SNMP recebidos</strong>		
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Taxa de pacotes SNMP recebidos</strong>
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="right" data-toggle="popover" 
+									data-content="
+										O SNMP pode agetar a performance do sistema. Se deseja-se conhecer a porcentagem de recursos uma entidade está usando para manipular o SNMP, pode-se calcular a taxa de pacotes SNMP recebidos ou enviados, usando os objetos snmpInPkts e snmpOutPkts.
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -329,7 +459,19 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 							</div>
 						</div>
 						<div class="panel-footer">
-							<strong>Taxa de pacotes SNMP enviados</strong>		
+							<div class="row">
+								<div class="col-md-10">
+									<strong>Taxa de pacotes SNMP enviados</strong>	
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-default pull-right" data-trigger="focus" data-placement="left" data-toggle="popover" 
+									data-content="
+										O SNMP pode agetar a performance do sistema. Se deseja-se conhecer a porcentagem de recursos uma entidade está usando para manipular o SNMP, pode-se calcular a taxa de pacotes SNMP recebidos ou enviados, usando os objetos snmpInPkts e snmpOutPkts.
+									" aria-label="Left Align">
+									  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+									</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
