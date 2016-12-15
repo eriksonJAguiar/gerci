@@ -7,7 +7,7 @@ $ip = $_GET['ip'];
 
 function snmp($oid){
 	global $ip;
-	return substr(snmpwalk($ip, "public", $oid)[0], 11);
+	return substr(@snmpwalk($ip, "public", $oid)[0], 11);
 }
 
 //@@INTERFACES
@@ -44,6 +44,7 @@ $ipInHdrErrors = snmp(".1.3.6.1.2.1.4.4");
 $ipInAddrErrors = snmp(".1.3.6.1.2.1.4.5");
 $ipInReceives = snmp(".1.3.6.1.2.1.4.3");
 $porcentagemErroDatagrama = ($ipInDiscards + $ipInHdrErrors + $ipInAddrErrors) / $ipInReceives;
+$porcentagemErroDatagrama *= 100;
 if($porcentagemErroDatagrama<10){
 	$porcetagemErroDatagramaClasse = "panel-green";
 }else if($porcentagemErroDatagrama<50){
@@ -264,7 +265,10 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$numeroFalhasEntradaEgp?>/s
+									<?php
+									if(empty($numeroFalhasEntradaEgp))echo "Não encontrada na MIB";
+									else echo $numeroFalhasEntradaEgp . "/s";
+									?>
 								</div>
 							</div>
 						</div>
@@ -278,7 +282,10 @@ $numeroPacotesSnmpEnviados = $snmpOutPkts;
 						<div class="panel-heading">
 							<div class="text-left">
 								<div class="huge">
-									<?=$numeroFalhasSaidaEgp?>/s
+									<?php
+									if(empty($numeroFalhasSaidaEgp))echo "Não encontrada na MIB";
+									else echo $numeroFalhasSaidaEgp . "/s";
+									?>
 								</div>
 							</div>
 						</div>
