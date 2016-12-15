@@ -137,7 +137,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-xl-12">
-                    <div class="container" style="padding-top: 15px">
+                    <div style="padding-top: 15px">
                         <form id="form-registrar">
                             <table class="table table-striped table-responsive">
                                 <thead>

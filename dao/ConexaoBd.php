@@ -18,7 +18,7 @@ abstract class database{
 	private static $host     = "127.0.0.1";
 	private static $port     = "3306";
 	private static $user     = "root";
-	private static $password = "root";
+	private static $password = "";
 	private static $db       = "gerci";
 
 	/*Metodos que trazem o conteudo da variavel desejada
