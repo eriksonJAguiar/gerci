@@ -6,7 +6,7 @@ function pegarDispositivos(){
 	return $dispositivos;	
 }
 function statusDispositivo($ip, $comunidade){
-	$sysuptime = @snmpget($ip, $comunidade, "1.3.6.1.2.1.1.3.0");
+	$sysuptime = @snmpget($ip, $comunidade, "1.3.6.1.2.1.1.3.0", 10);
 	return $sysuptime;
 }
 function pegarUnicoDispositivo($ip){
