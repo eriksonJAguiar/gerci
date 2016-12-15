@@ -2,14 +2,8 @@
 include_once "../templates/header.php"; 
 include_once "../../model/Dispositivo.php";
 include_once "../../dao/GenericDAO.php";
-$dao = new GenericDAO("dispositivos", "Dispositivo");
-$dispositivo = new Dispositivo();
-$dispositivo->setId(1);
-$dispositivo->setIp("172.16.103.32");
-$dispositivo->setLocal("Lab 3");
-$dispositivo->setDescricao("Um pc muito legal do grimes");
-$dispositivos = array();
-array_push($dispositivos, $dispositivo);
+$dao = new GenericDAO("maquinas", "Dispositivo");
+$dispositivos = $dao->getAll();
 ?>
 <style>
     tr:hover{
@@ -27,9 +21,9 @@ array_push($dispositivos, $dispositivo);
     <table class="table table-hover">
         <thead>
             <tr>
-                <td><h3>IP</h3></td>
-                <td><h3>Local</h3></td>
-                <td><h3>Descrição</h3></td>
+                <td>IP</td>
+                <td>Local</td>
+                <td>Descrição</td>
             </tr>
             <tbody>
             <?php
@@ -40,9 +34,9 @@ array_push($dispositivos, $dispositivo);
                 }
             ?>
                 <tr class="<?=$cor?>" onMouseOver="this.style.cursor='pointer'" onclick="verDispositivo('<?=$dispositivo->getIp()?>')">
-                    <td><h4><?=$dispositivo->getIp()?></h4></td>
-                    <td><h4><?=$dispositivo->getLocal()?></h4></td>
-                    <td><h4><?=$dispositivo->getDescricao()?></h4></td>
+                    <td><?=$dispositivo->getIp()?></td>
+                    <td><?=$dispositivo->getLocal()?></td>
+                    <td><?=$dispositivo->getDescricao()?></td>
                 </tr>
                 
             <?php
